@@ -42,13 +42,13 @@ void getIP(char* IP){
 void getMac(char* MAC, char** argv){
     struct ifreq s;
     int fd = socket(PF_INET, SOCK_DGRAM, IPPROTO_IP);
-    char temp[10];
+    char temp[3];   // ':' '%x' '%x' temporary arr
 
     strcpy(s.ifr_name, argv[1]);
     if (0 == ioctl(fd, SIOCGIFHWADDR, &s)) {
         for (int i = 0; i < 6; ++i) {
             sprintf(temp, "%02x:", (unsigned char)s.ifr_addr.sa_data[i]);
-            strcpy(MAC+ i * 3, temp);
+            strcpy(MAC+ i * 3, temp);   // copy into main MAC arr
         }
         MAC[17] = '\0';     // if not xx:xx:xx:xx: => get rid of last ':'
     }
