@@ -26,7 +26,6 @@ void usage() {
 	printf("sample: send-arp-test wlan0\n");
 }
 
-// https://technote.kr/176
 void getIP(char* IP){
     struct ifreq ifr;
     int s = socket(AF_INET, SOCK_DGRAM, 0);
@@ -40,7 +39,6 @@ void getIP(char* IP){
     }
 }
 
-// https://community.onion.io/topic/2441/obtain-the-mac-address-in-c-code/3
 void getMac(char* MAC, char** argv){
     struct ifreq s;
     int fd = socket(PF_INET, SOCK_DGRAM, IPPROTO_IP);
