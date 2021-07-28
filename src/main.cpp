@@ -44,12 +44,11 @@ void getMac(char* MAC, char* argv[]){
 
     strcpy(s.ifr_name, argv[1]);
     if (0 == ioctl(fd, SIOCGIFHWADDR, &s)) {
-        int i = 0;
-        for (i = 0; i < 6; ++i) {
+        for (int i = 0; i < 6; ++i) {
             sprintf(temp, "%02x:", (unsigned char)s.ifr_addr.sa_data[i]);
             strcpy(MAC+ i * 3, temp);
         }
-        MAC[17] = '\0';
+        MAC[17] = '\0';     // if not xx:xx:xx:xx: => get rid of last :
     }
 }
 
