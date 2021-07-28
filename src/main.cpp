@@ -37,7 +37,7 @@ void getIP(char* IP){
 }
 
 // https://community.onion.io/topic/2441/obtain-the-mac-address-in-c-code/3
-void getMac(char* MAC, char* argv[]){
+void getMac(char* MAC, char** argv){
     struct ifreq s;
     int fd = socket(PF_INET, SOCK_DGRAM, IPPROTO_IP);
     char temp[10];
