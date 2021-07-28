@@ -101,7 +101,7 @@ void WhereRU(char** argv, pcap_t* handle, char* senderMAC, char* myMAC, char* my
 }
 
 // ARP Poisoning
-void Venom(char* argv[], pcap_t* handle, char* senderMAC, char* myMAC){
+void Venom(char** argv, pcap_t* handle, char* senderMAC, char* myMAC){
     EthArpPacket ethpacket;
     ethpacket.eth_.dmac_ = Mac(senderMAC); // victim MAC
     ethpacket.eth_.smac_ = Mac(myMAC); // me hacker MAC
