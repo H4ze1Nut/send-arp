@@ -50,7 +50,7 @@ void getMac(char* MAC, char** argv){
             sprintf(temp, "%02x:", (unsigned char)s.ifr_addr.sa_data[i]);
             strcpy(MAC+ i * 3, temp);
         }
-        MAC[17] = '\0';     // if not xx:xx:xx:xx: => get rid of last :
+        MAC[17] = '\0';     // if not xx:xx:xx:xx: => get rid of last ':'
     }
 }
 
